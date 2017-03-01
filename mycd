@@ -1,0 +1,16 @@
+function local_dir_history()
+{
+    hist_file = $PWD/.dir_bash_history
+    if [ "$#" -eq 1 ]; then
+       hist_file = $1/.dir_bash_history
+    [[ -f $hist_file ]] || touch $hist_file
+}
+
+function mycd()
+{
+    builtin cd "$@" # do actual cd
+    write_file=$(rfind . -name '.dir_bash_history')
+    [[ -z $write_file ]] && export HISTFILE=$HOME/.bash_history || export HISTFILE=$write_file
+}
+
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"

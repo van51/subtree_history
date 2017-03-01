@@ -5,6 +5,8 @@ In other words you can have a different bash history for different projects.
 
 Inspired by https://gist.github.com/leipzig/1651133
 
+*rfind* function is based on the following answer http://unix.stackexchange.com/a/35265/105444
+
 # Installation
 
 In order to install this git do the following:
